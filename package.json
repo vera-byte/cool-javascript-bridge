@@ -1,5 +1,5 @@
 {
-  "name": "cool-webview-javascript-bridge",
+  "name": "cool-javascript-bridge",
   "version": "0.0.1",
   "description": "This is a javascript bridge communication combined with cool-flutter",
   "main": "dist/index.cjs.js",
@@ -21,9 +21,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/niwaguan/webview-javascript-bridge.git"
+    "url": "git+https://github.com/vera-byte/cool-javascript-bridge"
   },
   "keywords": [
+    "cool-flutter-kit",
+    "cool-javascript-bridge",
+    "cool-flutter-bridge",
+    "cool-uni",
+    "cool-admin",
+    "cool-admin-go",
+    "midway",
     "webview",
     "flutter",
     "webview_flutter",
@@ -35,7 +42,7 @@
   "bugs": {
     "url": "https://github.com/niwaguan/webview-javascript-bridge/issues"
   },
-  "homepage": "https://github.com/niwaguan/webview-javascript-bridge#readme",
+  "homepage": "https://github.com/vera-byte/cool-javascript-bridge/blob/main/README.md",
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.2",
     "@types/jest": "^27.5.1",
