@@ -3,9 +3,9 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 class JSONUriEncoder {
-    constructor(scheme = "webviewjsbridge", host = "stormyang.cn") {
+    constructor(scheme = "webviewjsbridge", appPackageName = "") {
         this.scheme = scheme;
-        this.host = host;
+        this.appPackageName = appPackageName;
     }
     encode(args) {
         const message = {
@@ -14,7 +14,7 @@ class JSONUriEncoder {
             params: args.params,
             callbackId: args.callbackId,
         };
-        return `${this.scheme}://${this.host}?args=${encodeURIComponent(JSON.stringify(message))}`;
+        return `${this.scheme}://${this.appPackageName}?args=${encodeURIComponent(JSON.stringify(message))}`;
     }
 }
 
@@ -189,24 +189,35 @@ class Auth {
     constructor() {
         this.channelName = "auth";
     }
-    getAccessToken() {
+    getCoolAppAccessToken(params) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield webViewJavaScriptBridge.sendMessage({
                 channel: this.channelName,
-                action: "accessToken"
+                params,
+                action: "getCoolAppAccessToken"
             });
         });
     }
     ;
-    getUserProfile() {
+    getUserProfile(params) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield webViewJavaScriptBridge.sendMessage({
                 channel: this.channelName,
-                action: "userProfile"
+                params,
+                action: "getUserProfile"
             });
         });
     }
     ;
+    getUserAddress(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                params,
+                action: "getUserAddress"
+            });
+        });
+    }
 }
 
 class System {
@@ -305,26 +316,85 @@ class System {
 }
 
 class Router {
+    constructor() {
+        this.channelName = "router";
+    }
+    navigateTo(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                params,
+                action: "navigateTo"
+            });
+        });
+    }
+    redirectTo(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                params,
+                action: "redirectTo"
+            });
+        });
+    }
+    navigateBack(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                params,
+                action: "navigateBack"
+            });
+        });
+    }
+    closeCurrentPageToAppPage(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                params,
+                action: "closeCurrentPageToAppPage"
+            });
+        });
+    }
+    wakeUpApp(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                params,
+                action: "wakeUpApp"
+            });
+        });
+    }
+    openExternalLink(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                params,
+                action: "openExternalLink"
+            });
+        });
+    }
 }
 
 class Interact {
     constructor() {
         this.channelName = "interact";
     }
-    showToast() {
+    showToast(params) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield webViewJavaScriptBridge.sendMessage({
                 channel: this.channelName,
-                action: "showToast"
+                action: "showToast",
+                params
             });
         });
     }
     ;
-    showLoading() {
+    showLoading(params) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield webViewJavaScriptBridge.sendMessage({
                 channel: this.channelName,
-                action: "showLoading"
+                action: "showLoading",
+                params
             });
         });
     }
@@ -451,6 +521,69 @@ class Interact {
 }
 
 class Payment {
+    constructor() {
+        this.channelName = "payment";
+    }
+    wxPay(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                params,
+                action: "wxPay"
+            });
+        });
+    }
+    aliPay(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                params,
+                action: "aliPay"
+            });
+        });
+    }
+    unionPay(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                params,
+                action: "unionPay"
+            });
+        });
+    }
+    balancePay(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                params,
+                action: "balancePay"
+            });
+        });
+    }
+}
+
+class Cache {
+    constructor() {
+        this.channelName = "cache";
+    }
+    easyStorageCache() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                action: "easyStorageCache"
+            });
+        });
+    }
+    ;
+    sqliteStorageCache() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                action: "easyStorageCache"
+            });
+        });
+    }
+    ;
 }
 
 const coolAppAuth = new Auth();
@@ -458,7 +591,7 @@ const coolAppSyetem = new System();
 const coolAppRouter = new Router();
 const coolAppCache = new Cache();
 const coolAppInteract = new Interact();
-const coolPayment = new Payment();
+const coolAppPayment = new Payment();
 
 exports.JSONEncoder = JSONEncoder;
 exports.JSONUriEncoder = JSONUriEncoder;
@@ -466,8 +599,8 @@ exports.UriEncoder = UriEncoder;
 exports.coolAppAuth = coolAppAuth;
 exports.coolAppCache = coolAppCache;
 exports.coolAppInteract = coolAppInteract;
+exports.coolAppPayment = coolAppPayment;
 exports.coolAppRouter = coolAppRouter;
 exports.coolAppSyetem = coolAppSyetem;
-exports.coolPayment = coolPayment;
 exports.webViewJavaScriptBridge = webViewJavaScriptBridge;
 //# sourceMappingURL=index.cjs.js.map
