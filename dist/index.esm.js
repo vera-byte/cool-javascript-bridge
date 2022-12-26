@@ -490,19 +490,21 @@ class Interact {
             });
         });
     }
-    chooseImage() {
+    chooseImageAutoUpload(params) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield webViewJavaScriptBridge.sendMessage({
                 channel: this.channelName,
-                action: "chooseImage"
+                action: "chooseImageAutoUpload",
+                params
             });
         });
     }
-    chooseVideo() {
+    chooseVideoAutoUoload(params) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield webViewJavaScriptBridge.sendMessage({
                 channel: this.channelName,
-                action: "chooseVideo"
+                action: "chooseVideoAutoUpload",
+                params
             });
         });
     }
