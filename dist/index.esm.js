@@ -516,6 +516,14 @@ class Interact {
             });
         });
     }
+    chooseLocation() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                action: "chooseLocation"
+            });
+        });
+    }
 }
 
 class Payment {
