@@ -1,0 +1,18 @@
+import webViewJavaScriptBridge from './webview-javascript-bridge';
+import UriEncoder from './encoder/uri-encoder';
+import JSONEncoder from './encoder/json-encoder';
+import JSONUriEncoder from './encoder/json-uri-encoder';
+export { webViewJavaScriptBridge, UriEncoder, JSONEncoder, JSONUriEncoder };
+import Auth from './cool-typescript-channels/auth';
+import System from './cool-typescript-channels/system';
+import Router from './cool-typescript-channels/router';
+import Interact from './cool-typescript-channels/interact';
+import Payment from './cool-typescript-channels/payment';
+import Cache from './cool-typescript-channels/cache';
+declare const coolAppAuth: Auth;
+declare const coolAppSyetem: System;
+declare const coolAppRouter: Router;
+declare const coolAppCache: Cache;
+declare const coolAppInteract: Interact;
+declare const coolAppPayment: Payment;
+export { coolAppAuth, coolAppSyetem, coolAppRouter, coolAppCache, coolAppInteract, coolAppPayment, };

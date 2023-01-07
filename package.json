@@ -37,7 +37,6 @@
     "webivew_plugin",
     "webview-javascript-bridge"
   ],
-  "author": "niwaguan@sina.cn",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/niwaguan/webview-javascript-bridge/issues"

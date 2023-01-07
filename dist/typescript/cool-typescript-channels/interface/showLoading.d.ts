@@ -1,0 +1,3 @@
+interface CoolAppShowLoading {
+    message: string;
+}
