@@ -10,15 +10,20 @@ export default class Interact {
         this.channelName = "interact";
     }
 
-    // showAppBar
+    /**
+     * @example coolAppInteract.showAppBar();
+     * @desc 隐藏导航栏
+    */
     public async showAppBar(): Promise<void> {
         return await _r.sendMessage({
             channel: this.channelName,
             action: "showAppBar",
         })
     };
-
-    // showAppBar
+    /**
+     * @example coolAppInteract.hideAppBar();
+     * @desc 隐藏导航栏
+    */
     public async hideAppBar(): Promise<void> {
         return await _r.sendMessage({
             channel: this.channelName,
