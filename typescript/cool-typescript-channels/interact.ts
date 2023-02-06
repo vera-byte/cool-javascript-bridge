@@ -12,7 +12,7 @@ export default class Interact {
 
     /**
      * @example coolAppInteract.showAppBar();
-     * @desc 隐藏导航栏
+     * @desc 显示导航栏
     */
     public async showAppBar(): Promise<void> {
         return await _r.sendMessage({
