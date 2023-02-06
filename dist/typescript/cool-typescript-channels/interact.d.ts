@@ -1,6 +1,8 @@
 export default class Interact {
     private channelName;
     constructor();
+    showAppBar(): Promise<void>;
+    hideAppBar(): Promise<void>;
     showToast(params: CoolAppShowToast): Promise<string>;
     showLoading(params: CoolAppShowLoading): Promise<string>;
     hideLoading(): Promise<string>;

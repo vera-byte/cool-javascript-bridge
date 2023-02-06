@@ -9,6 +9,23 @@ export default class Interact {
     constructor() {
         this.channelName = "interact";
     }
+
+    // showAppBar
+    public async showAppBar(): Promise<void> {
+        return await _r.sendMessage({
+            channel: this.channelName,
+            action: "showAppBar",
+        })
+    };
+
+    // showAppBar
+    public async hideAppBar(): Promise<void> {
+        return await _r.sendMessage({
+            channel: this.channelName,
+            action: "hideAppBar",
+        })
+    };
+
     // showToast
     public async showToast(params: CoolAppShowToast): Promise<string> {
         return await _r.sendMessage({

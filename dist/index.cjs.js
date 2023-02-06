@@ -379,6 +379,24 @@ class Interact {
     constructor() {
         this.channelName = "interact";
     }
+    showAppBar() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                action: "showAppBar",
+            });
+        });
+    }
+    ;
+    hideAppBar() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield webViewJavaScriptBridge.sendMessage({
+                channel: this.channelName,
+                action: "hideAppBar",
+            });
+        });
+    }
+    ;
     showToast(params) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield webViewJavaScriptBridge.sendMessage({
