@@ -1,0 +1,6 @@
+
+
+interface openCar {
+    carId: string;
+}
+

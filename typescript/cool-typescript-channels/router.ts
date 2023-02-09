@@ -56,4 +56,13 @@ export default class Router {
             action: "openExternalLink"
         })
     }
+
+    // 打开车源详情
+    public async openToCarDetails(params: openCar): Promise<void> {
+        return await _r.sendMessage({
+            channel: this.channelName,
+            params,
+            action: "openToCarDetails"
+        })
+    }
 }
