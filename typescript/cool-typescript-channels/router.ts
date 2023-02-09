@@ -24,14 +24,7 @@ export default class Router {
             action: "redirectTo"
         })
     }
-    // 返回上一页
-    public async navigateBack(params: any): Promise<string> {
-        return await _r.sendMessage({
-            channel: this.channelName,
-            params,
-            action: "navigateBack"
-        })
-    }
+
     // 关闭当前页面，跳转到应用内的某个页面
     public async closeCurrentPageToAppPage(params: any): Promise<string> {
         return await _r.sendMessage({
@@ -57,12 +50,37 @@ export default class Router {
         })
     }
 
-    // 打开车源详情
+    /**
+     * @desc 打开车辆详情页
+     * @example coolAppRouter.openToCarDetails({carId: "202302051545117"});
+     * */
     public async openToCarDetails(params: openCar): Promise<void> {
         return await _r.sendMessage({
             channel: this.channelName,
             params,
             action: "openToCarDetails"
+        })
+    }
+
+    /**
+     * @desc 重定向到登录
+     * @example coolAppRouter.redirectToLogin();
+     * */
+    public async redirectToLogin(): Promise<void> {
+        return await _r.sendMessage({
+            channel: this.channelName,
+            action: "redirectToLogin"
+        })
+    }
+
+    /**
+     * @desc 返回上一页
+     * @example coolAppRouter.navigateBack();
+     * */
+    public async navigateBack(): Promise<void> {
+        return await _r.sendMessage({
+            channel: this.channelName,
+            action: "navigateBack"
         })
     }
 }
