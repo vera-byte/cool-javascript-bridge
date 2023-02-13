@@ -80,7 +80,21 @@ export default class Router {
     public async navigateBack(): Promise<void> {
         return await _r.sendMessage({
             channel: this.channelName,
-            action: "navigateBack"
+            action: "navigateBack",
+
+        })
+    }
+
+    /**
+     * @desc 微聊
+     * @example coolAppRouter.microChat({carId: "202302051545117",userId: "3323423"}}});
+     * */
+    public async microChat(params: openMicroChat): Promise<void> {
+        return await _r.sendMessage({
+            channel: this.channelName,
+            action: "microChat",
+            params,
+
         })
     }
 }
