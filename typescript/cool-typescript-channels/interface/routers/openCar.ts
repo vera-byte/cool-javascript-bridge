@@ -1,6 +1,6 @@
 
 
-interface openCar {
+interface OpenCar {
     carId: string;
 }
 

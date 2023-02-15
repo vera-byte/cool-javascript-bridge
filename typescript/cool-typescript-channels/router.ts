@@ -54,13 +54,26 @@ export default class Router {
      * @desc 打开车辆详情页
      * @example coolAppRouter.openToCarDetails({carId: "202302051545117"});
      * */
-    public async openToCarDetails(params: openCar): Promise<void> {
+    public async openToCarDetails(params: OpenCar): Promise<void> {
         return await _r.sendMessage({
             channel: this.channelName,
             params,
             action: "openToCarDetails"
         })
     }
+
+    /**
+    * @desc 打开车辆详情页
+    * @example coolAppRouter.openToPurchaseDetails({id: "202302051545117"});
+    * */
+    public async openToPurchaseDetails(params: OpenPurchase): Promise<void> {
+        return await _r.sendMessage({
+            channel: this.channelName,
+            params,
+            action: "openToPurchaseDetails"
+        })
+    }
+
 
     /**
      * @desc 重定向到登录
@@ -87,7 +100,7 @@ export default class Router {
 
     /**
      * @desc 微聊
-     * @example coolAppRouter.microChat({carId: "202302051545117",userId: "3323423"}}});
+     * @example coolAppRouter.microChat({carId: "202302051545117",userId: "3323423"});
      * */
     public async microChat(params: openMicroChat): Promise<void> {
         return await _r.sendMessage({

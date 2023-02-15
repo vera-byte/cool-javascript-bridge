@@ -1,0 +1,6 @@
+
+
+interface OpenPurchase {
+    id: string;
+}
+
