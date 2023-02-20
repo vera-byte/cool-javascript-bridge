@@ -19,10 +19,9 @@ export default class Auth {
     };
 
     // 获取用户信息
-    public async getUserProfile(params: any): Promise<string> {
+    public async getUserProfile(): Promise<UserProfile> {
         return await _r.sendMessage({
             channel: this.channelName,
-            params,
             action: "getUserProfile"
         })
     };
