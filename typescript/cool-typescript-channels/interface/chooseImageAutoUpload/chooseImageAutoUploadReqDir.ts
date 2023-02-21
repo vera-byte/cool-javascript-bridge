@@ -13,4 +13,5 @@ enum ChooseImagDir {
     "iDCardImg" = "iDCardImg",
     "doorhead" = "doorhead",
     "avatar" = "avatar",
+    "complaint" = "complaint",
 }
