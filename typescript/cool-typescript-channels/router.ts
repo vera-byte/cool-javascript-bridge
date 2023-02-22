@@ -74,6 +74,17 @@ export default class Router {
         })
     }
 
+    /**
+    * @desc 发布车源
+    * @example coolAppRouter.releaseCar();
+    * */
+    public async releaseCar(): Promise<void> {
+        return await _r.sendMessage({
+            channel: this.channelName,
+            action: "releaseCar"
+        })
+    }
+
 
     /**
      * @desc 重定向到登录
