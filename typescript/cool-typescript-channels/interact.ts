@@ -14,10 +14,11 @@ export default class Interact {
      * @example coolAppInteract.showAppBar();
      * @desc 显示导航栏
     */
-    public async showAppBar(): Promise<void> {
+    public async showAppBar(params: showAppBarOptions): Promise<void> {
         return await _r.sendMessage({
             channel: this.channelName,
             action: "showAppBar",
+            params
         })
     };
     /**
