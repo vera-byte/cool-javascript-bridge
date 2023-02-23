@@ -7,5 +7,7 @@ interface showAppBarOptions {
     isFullPage: boolean;
     // 导航背景是否透明
     isNavBarBgTransparent: boolean;
+    ///导航栏文字颜色 0xFF000000
+    color: number;
 }
 
